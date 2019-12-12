@@ -1,3 +1,4 @@
+require 'sinatra'
 require 'active_support/inflector'
 require 'httparty'
 
@@ -11,6 +12,6 @@ def am_i_response(weather_summary, weather_type)
   weather_summary[weather_type] == true ? "aye pal - fae the next #{weather_duration[0]} #{'day'.pluralize(weather_duration[0])}" : "naw mate, yer alright"
 end
 
-
-puts "Am I snowed in pal? #{am_i_response(get_forecast()['summary'], 'heavy_snow')}"
-puts "Is it blowin' a gale pal? #{am_i_response(get_forecast()['summary'], 'high_wind_night')}"
+get '/' do
+  erb :index
+end
