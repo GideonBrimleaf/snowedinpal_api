@@ -15,3 +15,11 @@ end
 get '/' do
   erb :index
 end
+
+get '/snowed_in' do
+  erb :snow
+end
+
+get '/heavy_wind' do
+  erb :wind
+end

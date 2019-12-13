@@ -1,4 +1,8 @@
-<ul>
-    <li><%= "Am I snowed in pal? #{am_i_response(get_forecast()['summary'], 'heavy_snow')}" %></li>
-    <li><%= "Is it blowin' a gale pal? #{am_i_response(get_forecast()['summary'], 'high_wind_night')}" %></li>
-</ul>
+<div class="container">
+    <div class="jumbotron">
+      <h1>Am I Snowed in Pal?</h1>      
+      <p>A cynical and simplistic weather guide</p>
+    </div>
+    <a class="btn btn-primary" href="/snowed_in" role="button">Am I Snowed In Pal?</a>
+    <a class="btn btn-success" href="/heavy_wind" role="button">Is It Blowin' A Gale Pal?</a>   
+</div>
