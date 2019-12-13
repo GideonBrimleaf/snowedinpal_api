@@ -22,7 +22,7 @@ end
 
 get '/snowed_in' do
   @forecast = get_forecast
-  @weather_response = am_i_response(@forecast['summary'], 'heavy_snow')
+  @weather_response = am_i_response(@forecast['summary'],'heavy_snow')
   @weather_report_day1 = weather_report(@forecast)[0]
   @weather_report_day2 = weather_report(@forecast)[1]
   @weather_report_day3 = weather_report(@forecast)[2]
@@ -30,6 +30,8 @@ get '/snowed_in' do
 end
 
 get '/heavy_wind' do
+  @forecast = get_forecast
+  @weather_response = am_i_response(@forecast['summary'],'high_wind_night')
   @weather_report_day1 = weather_report(get_forecast)[0]
   @weather_report_day2 = weather_report(get_forecast)[1]
   @weather_report_day3 = weather_report(get_forecast)[2]
