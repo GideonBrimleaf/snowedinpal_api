@@ -2,8 +2,9 @@ require 'sinatra'
 require 'active_support/inflector'
 require 'httparty'
 
-def get_forecast 
-  HTTParty.get('https://peaceful-scrubland-76997.herokuapp.com/forecasts/three_day').parsed_response
+def get_forecast
+  url = 'https://peaceful-scrubland-76997.herokuapp.com/forecasts/three_day'
+  HTTParty.get(url).parsed_response
 end
 
 
@@ -21,19 +22,19 @@ get '/' do
 end
 
 get '/snowed_in' do
-  @forecast = get_forecast
-  @weather_response = am_i_response(@forecast['summary'],'heavy_snow')
-  @weather_report_day1 = weather_report(@forecast)[0]
-  @weather_report_day2 = weather_report(@forecast)[1]
-  @weather_report_day3 = weather_report(@forecast)[2]
+  forecast = get_forecast
+  @weather_response = am_i_response(forecast['summary'],'heavy_snow')
+  @weather_report_day1 = weather_report(forecast)[0]
+  @weather_report_day2 = weather_report(forecast)[1]
+  @weather_report_day3 = weather_report(forecast)[2]
   erb :snow
 end
 
 get '/heavy_wind' do
-  @forecast = get_forecast
-  @weather_response = am_i_response(@forecast['summary'],'high_wind_night')
-  @weather_report_day1 = weather_report(get_forecast)[0]
-  @weather_report_day2 = weather_report(get_forecast)[1]
-  @weather_report_day3 = weather_report(get_forecast)[2]
+  forecast = get_forecast
+  @weather_response = am_i_response(forecast['summary'],'high_wind_night')
+  @weather_report_day1 = weather_report(forecast)[0]
+  @weather_report_day2 = weather_report(forecast)[1]
+  @weather_report_day3 = weather_report(forecast)[2]
   erb :wind
 end
