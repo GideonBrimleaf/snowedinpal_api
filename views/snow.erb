@@ -1,5 +1,5 @@
 <h2>Am I Snowed In Pal?</h2>
-<p><%= "#{@weather_answer}" %></p>
+<p><%= "#{@weather_report.am_i_response}" %></p>
 
 <table class="table">
   <thead>
@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @weather_data.each do |weather_item|%>
+    <% @weather_report.data.each do |weather_item|%>
     <tr>
       <th scope="row"><%= weather_item[0] %></th>
       <td><%= weather_item[2]['daytime']['text'] %></td>
