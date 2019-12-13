@@ -7,7 +7,6 @@ def get_forecast
   HTTParty.get(url).parsed_response
 end
 
-
 def am_i_response(weather_summary, weather_type)
   weather_duration = weather_type == 'heavy_snow' ? weather_summary['heavy_snow_days'] : weather_summary['high_wind_nights']
   weather_summary[weather_type] == true ? "Aye pal - fae the next #{weather_duration[0]} #{'day'.pluralize(weather_duration[0])}" : "Naw mate, yer alright"

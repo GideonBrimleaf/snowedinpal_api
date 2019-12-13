@@ -1,3 +1,4 @@
+<% @weather_data = [@weather_report_day1, @weather_report_day2, @weather_report_day3]%>
 <h2>Am I Snowed In Pal?</h2>
 <p><%= "#{@weather_response}" %></p>
 
@@ -11,24 +12,14 @@
     </tr>
   </thead>
   <tbody>
+    <% @weather_data.each do |weather_item|%>
     <tr>
-      <th scope="row"><%= @weather_report_day1[0] %></th>
-      <td><%= @weather_report_day1[2]['daytime']['text'] %></td>
-      <td><%= @weather_report_day1[2]['night']['text'] %></td>
-      <td><%= @weather_report_day1[2]['night']['min_temperature'] %></td>
+      <th scope="row"><%= weather_item[0] %></th>
+      <td><%= weather_item[2]['daytime']['text'] %></td>
+      <td><%= weather_item[2]['night']['text'] %></td>
+      <td><%= weather_item[2]['night']['min_temperature'] %></td>
     </tr>
-    <tr>
-      <th scope="row"><%= @weather_report_day2[0] %></th>
-      <td><%= @weather_report_day2[2]['daytime']['text'] %></td>
-      <td><%= @weather_report_day2[2]['night']['text'] %></td>
-      <td><%= @weather_report_day2[2]['night']['min_temperature'] %></td>
-    </tr>
-    <tr>
-      <th scope="row"><%= @weather_report_day3[0] %></th>
-      <td><%= @weather_report_day3[2]['daytime']['text'] %></td>
-      <td><%= @weather_report_day3[2]['night']['text'] %></td>
-      <td><%= @weather_report_day3[2]['night']['min_temperature'] %></td>
-    </tr>
+    <% end %>
   </tbody>
 </table>
 
