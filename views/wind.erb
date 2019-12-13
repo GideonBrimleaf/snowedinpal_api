@@ -1,3 +1,3 @@
-<ul>
-    <li><%= "Is it blowin' a gale pal? #{am_i_response(get_forecast()['summary'], 'high_wind_night')}" %></li>
-</ul>
+<h2>Is it blowin' a gale pal?</h2>
+<p><%= " #{am_i_response(get_forecast()['summary'], 'high_wind_night')}" %></p>
+<a class="btn btn-secondary" href="/" role="button">Thanks Pal!</a>
