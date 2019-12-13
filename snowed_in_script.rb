@@ -21,9 +21,11 @@ get '/' do
 end
 
 get '/snowed_in' do
-  @weather_report_day1 = weather_report(get_forecast)[0]
-  @weather_report_day2 = weather_report(get_forecast)[1]
-  @weather_report_day3 = weather_report(get_forecast)[2]
+  @forecast = get_forecast
+  @weather_response = am_i_response(@forecast['summary'], 'heavy_snow')
+  @weather_report_day1 = weather_report(@forecast)[0]
+  @weather_report_day2 = weather_report(@forecast)[1]
+  @weather_report_day3 = weather_report(@forecast)[2]
   erb :snow
 end
 
