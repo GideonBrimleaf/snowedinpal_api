@@ -8,7 +8,7 @@ class WeatherReport
   def am_i_response
     weather_summary = @forecast['summary']
     weather_duration = @weather_type == :heavy_snow ? weather_summary['heavy_snow_days'] : weather_summary['high_wind_nights']
-    weather_summary[@weather_type] == true ? "Aye pal - fae the next #{weather_duration[0]} #{'day'.pluralize(weather_duration[0])}" : "Naw mate, yer alright"
+    weather_duration > 0 ? "Aye pal - fae the next #{weather_duration} #{'day'.pluralize(weather_duration)}" : "Naw mate, yer alright"
   end
 
   def data
